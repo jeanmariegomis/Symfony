@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section class="employers">
+<table id="employer">
+
+<thead>
+
+<tr>
+
+<th>Matricule</th>
+<th>Nom</th>
+<th>Date de Naissance</th>
+<th>Salaire</th>
+{# <th>Service</th> #}
+<th>Modification</th>
+<th>Suppression</th>
+</tr>
+
+{% for employer in employers %}
+
+<tr>
+
+<td>{{ employer.matricule }}</td>
+<td>{{ employer.nom }}</td>
+<td>{{ employer.datenaiss | date('y-M-d') }}</td>
+<td>{{ employer.salaire }}</td>
+{# <td>{{ employer.service }}</td> #}
+<td><a href="{{ employer.id }}/edit" class="btn btn-success">Modifier</td>
+<td><a href="{{ employer.id }}" class="btn btn-success">Supprimer</td>
+
+
+</tr>
+    
+{% endfor %}
+
+
+</thead>
+
+
+</table>
+
+</section>
+
+<script>$(document).ready(function() {
+    $('#example').DataTable();
+} );</script>
+
+
+{% endblock %}

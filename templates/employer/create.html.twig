@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formEmployer 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+<h1>Ajouter employer</h1>
+
+{{ form_start(formEmployer)}}
+
+{{ form_widget(formEmployer) }}
+
+{{ form_row(formEmployer.matricule, {'attr': {'placeholder': "matricule"} }) }}
+{{ form_row(formEmployer.nom, {'attr': {'placeholder': "nom"} }) }}
+{{ form_row(formEmployer.datenaiss, {'attr': {'placeholder': "datenaiss"} }) }}
+{{ form_row(formEmployer.salaire, {'attr': {'placeholder': "salaire"} }) }}
+
+<button type="submit" class="btn btn-success">
+{% if editMode %}
+Modifier
+{% else %}
+Ajouter
+{% endif %}
+</button>
+
+
+
+{{ form_end(formEmployer) }}
+
+
+
+{% endblock %}
